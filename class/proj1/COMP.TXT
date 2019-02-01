@@ -1,0 +1,41 @@
+Michael Hayes
+CS 4533
+Assignment #1
+
+Grammar
+
+Program ( Declarative-part Executable-part
+Declarative-part ( "define" "{" Declarations "}"
+Declarations ( …
+Executable-part ( "execute" "{" Statements "}"
+Statements ( syntax ";" statements | syntax | (
+syntax ( "place" identifier | "place" identifier "at" expression "," expression
+| "new" robottype identifier 
+| "new" robottype identifier "at" expression "," expression 
+| "tell" identifier ":" instruction | "tell" identifier ":" "{" instructions "}" 
+| "tell" identifier ":" instruction | "tell" identifier ":" "{" instructions "}" 
+| "iterate" expression "times" statements 
+| "iterate" expression "times" "{" statements "}" | "place" identifier 
+| "place" identifier "at" expression "," expression | "remove" identifier
+robottype ( identifier
+instructions ( instruction ";" instructions | instruction | (
+instruction ( "Move" expression | "TurnLeft" | "PickBeeper" | "PutBeeper" 
+| "iterate" expression "times" instruction 
+| "iterate" expression "times" "{" instructions "}" 
+| "if" "(" boolexp ")" instruction | "if" "(" boolexp ")" "{" instructions "}" 
+| "if" "(" boolexp ")" instruction "else" instruction 
+| "if" "(" boolexp ")" instruction else "{" instructions "}" 
+| "if" "(" boolexp ")" "{" instructions "}" else instruction 
+| "if" "(" boolexp ")" "{" instructions "}" else "{" instructions "}" 
+| "while" boolexp instruction | "while" boolexp "{" instructions "}"
+| "BeepersInBag" | "beepers_in_bag" | "BeepersOnFloor" | "beepers_on_floor" 
+| "XPostion" | "x_position" | "YPosition" | "y_position"
+expression ( expression operator term | term
+operator ( "-" | "not" | "!" | "*" | "/" | "+" | "-" | ">" | "<" | ">=" | "<=" | "==" | "!=" 
+| "&&" | "and" | "||" | "or"
+term ( term operator factor | factor
+boolexp ( boolexp operator boolfactor | boolfactor
+boolfactor ( "FrontIsClear" | "front_is_clear" | "RightIsClear" | "right_is_clear" 
+| "LeftIsClear" | "left_is_clear" | "FacingNorth" | "facing_north" 
+| "FacingSouth" | "facing_south" | "FacingEast" | "facing_east" | factor
+factor ( "(" expression ")" | digit

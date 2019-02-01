@@ -1,0 +1,12 @@
+execute
+{
+  new basic_bot Eve;
+  tell Eve:
+  {
+    iterate 3 times
+    {
+      TurnLeft;
+      Move 1;
+    }
+  }
+}
